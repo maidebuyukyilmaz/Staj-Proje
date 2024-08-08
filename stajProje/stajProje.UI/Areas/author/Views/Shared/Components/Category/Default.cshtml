@@ -1,0 +1,13 @@
+﻿@model List<stajProje.UI.DTOs.CategoryDtos.CategoryDto>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Kategoriler
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        @foreach (var category in Model)
+        {
+            <li> <a class="dropdown-item" href="@Url.Action("BlogsByCategory", "Blog", new { categoryId = category.Id })">@category.Name</a></li>
+        }
+    </ul>
+</li>

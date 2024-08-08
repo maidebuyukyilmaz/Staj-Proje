@@ -1,0 +1,121 @@
+﻿@model IEnumerable<stajProje.UI.DTOs.UserDtos.UserDto>
+
+@{
+    ViewData["Title"] = "Yazarlar";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+            .table th, .table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #f2f2f2;
+                color: #333;
+            }
+
+            .table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+        .btn {
+            padding: 6px 12px;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-danger {
+            background-color: #d9534f;
+        }
+
+        .btn-primary {
+            background-color: #0275d8;
+        }
+
+        .btn-info {
+            background-color: #5bc0de;
+        }
+
+        form {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        input[type="text"] {
+            padding: 6px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>@ViewData["Title"]</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>About</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var author in Model)
+            {
+                <tr>
+                    <td>@author.Name</td>
+                    <td>@author.Surname</td>
+                    <td>@author.Email</td>
+                    <td>@author.Rol</td>
+                    <td>
+                        @Html.ActionLink("Detaylar", "Details", new { id = author.Id }, new { @class = "btn btn-info" })
+                    </td>
+                    <td>
+                        <form action="@Url.Action("Delete", "Author", new { area = "admin" })" method="post">
+                       
+                            <input type="hidden" name="id" value="@author.Id" />
+                            <button type="submit" class="btn btn-danger">Sil</button>
+                        </form>
+                        <form action="@Url.Action("UpdateRole", "Author", new { area = "admin" })" method="post">
+                            <input type="hidden" name="UserId" value="@author.Id" />
+                            <input type="text" name="NewRole" placeholder="Yeni Rol" />
+                            <button type="submit" class="btn btn-primary">Güncelle</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+

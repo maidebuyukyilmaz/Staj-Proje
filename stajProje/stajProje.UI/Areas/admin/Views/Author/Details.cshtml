@@ -1,0 +1,56 @@
+﻿@model stajProje.UI.DTOs.AboutDtos.AboutDto
+
+@{
+    ViewData["Title"] = "Yazar Detayları";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+        }
+
+        .btn-danger {
+            background-color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <h1>@ViewData["Title"]</h1>
+
+    <p><strong>Yazar Hakkında:</strong> @Model.Description</p>
+
+    <form asp-action="DeleteAbout" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button type="submit" class="btn btn-danger">About Sil</button>
+    </form>
+</body>
+</html>

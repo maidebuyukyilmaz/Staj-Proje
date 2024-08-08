@@ -1,0 +1,24 @@
+﻿@model List<stajProje.UI.DTOs.BlogDtos.BlogDto>
+
+@{
+    Layout = "~/Areas/user/Views/Shared/_UserMenu.cshtml";
+
+    ViewData["Title"] = "Bloglar";
+}
+
+<h1>Bloglar</h1>
+<div class="blog-list">
+  
+    @foreach (var blog in Model)
+    {
+            <a href="@Url.Action("Details", "Blog", new { id = blog.Id })
+            " class="blog-card"></a>
+
+            <div class="blog-card">
+                <h2>@blog.Title</h2>
+            <p>Yazar: @blog.Author.Name @blog.Author.Surname </p>
+            <p>Kategori: @blog.Category.Name</p>
+            <p>Tarih: @blog.PublishedAt?.ToString("dd MMM yyyy")</p>
+        </div>
+    }
+</div>

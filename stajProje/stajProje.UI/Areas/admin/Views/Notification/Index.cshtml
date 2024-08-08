@@ -1,0 +1,38 @@
+﻿@model IEnumerable<stajProje.UI.DTOs.ContactDtos.ContactDto>
+
+@{
+    ViewData["Title"] = "Bildirimler";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Email</th>
+            
+            <th>Gönderim Tarihi</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(contact.Name, "Details", new { id = contact.ContactId })</td>
+                <td>@contact.Name</td>
+                <td>@contact.Email</td>
+             
+                <td>@contact.SentDate.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@contact.ContactId" />
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

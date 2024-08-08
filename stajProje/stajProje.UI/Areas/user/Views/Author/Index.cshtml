@@ -1,0 +1,19 @@
+﻿@model List<stajProje.UI.DTOs.AboutDtos.AboutDto>
+@{
+    Layout = "~/Areas/user/Views/Shared/_UserMenu.cshtml";
+    ViewData["Title"] = "Yazarlar";
+}
+
+
+
+
+<h1>Yazarlar</h1>
+<div class="author-list">
+    @foreach (var author in Model)
+    {
+        <div class="author-card">
+            <h2>@author.author.Name</h2>
+            <p>@author.Description</p>
+        </div>
+    }
+</div>

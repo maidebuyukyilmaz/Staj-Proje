@@ -1,0 +1,9 @@
+﻿<li class="dropdown">
+    <a href="">Kategoriler</a>
+    <div class="dropdown-content">
+        @foreach (var category in ViewBag.Categories)
+        {
+            <a href="@Url.Action("BlogsByCategory", "Blog", new { categoryId = category.Id })">@category.Name</a>
+        }
+    </div>
+</li>

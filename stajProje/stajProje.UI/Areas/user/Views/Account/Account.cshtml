@@ -1,0 +1,25 @@
+﻿@model stajProje.UI.DTOs.UserDtos.UserDto
+
+@{
+    ViewData["Title"] = "Account Information";
+}
+
+<h2>Account Information</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Name:</strong> @Model.Name</p>
+            <p><strong>Surname:</strong> @Model.Surname</p>
+        </div>
+    </div>
+}

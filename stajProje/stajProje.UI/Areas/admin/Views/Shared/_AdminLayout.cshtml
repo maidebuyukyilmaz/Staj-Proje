@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+            .sidebar .top-section {
+                padding: 20px;
+                text-align: center;
+                border-bottom: 1px solid #34495e;
+            }
+
+                .sidebar .top-section h1 {
+                    margin: 0;
+                    font-size: 24px;
+                }
+
+            .sidebar .menu {
+                flex-grow: 1;
+                padding: 20px 0;
+            }
+
+                .sidebar .menu a {
+                    display: block;
+                    padding: 15px 20px;
+                    color: #ecf0f1;
+                    text-decoration: none;
+                    border-bottom: 1px solid #34495e;
+                }
+
+                    .sidebar .menu a:hover {
+                        background-color: #34495e;
+                    }
+
+            .sidebar .bottom-section {
+                padding: 20px;
+                border-top: 1px solid #34495e;
+                display: flex;
+                justify-content: space-between;
+            }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="top-section">
+            <h1>Site İsmi</h1>
+        </div>
+        <div class="menu">
+            <a href="@Url.Action("Index", "User")">Kullanıcılar</a>
+            <a href="@Url.Action("Index", "Categories")">Kategoriler</a>
+            <a href="@Url.Action("Index", "Author")">Yazarlar</a>
+            <a href="@Url.Action("ActiveBlogs", "Blog")">Aktif Bloglar</a>
+            <a href="@Url.Action("PassiveBlogs", "Blog")">Pasif Bloglar</a>
+            <a href="@Url.Action("Index", "Notifications")">Bildirimler</a>
+        </div>
+        <div class="bottom-section">
+            <a href="@Url.Action("Account", "Manage")">Hesap</a>
+            <a href="@Url.Action("Logout", "Account")">Çıkış</a>
+        </div>
+    </div>
+    <div class="main-content">
+        @RenderBody()
+    </div>
+</body>
+</html>

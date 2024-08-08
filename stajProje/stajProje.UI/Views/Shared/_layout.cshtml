@@ -1,0 +1,39 @@
+﻿@model List<stajProje.UI.DTOs.BlogDtos.BlogDto>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Adı</title>
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+    <header>
+        <h1>Site Adı</h1>
+        <nav>
+            <ul>
+                <li><a href="@Url.Action("Index", "Home")">Ana Sayfa</a></li>
+                <li><a href="@Url.Action("Index", "Login")">Giriş Yap</a></li>
+                <li><a href="@Url.Action("Index", "Register")">Kayıt Ol</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+       
+
+
+        <section id="contact">
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year Site Adı</p>
+    </footer>
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+</body>
+</html>

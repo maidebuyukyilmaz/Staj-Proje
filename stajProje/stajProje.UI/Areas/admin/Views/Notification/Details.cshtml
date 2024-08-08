@@ -1,0 +1,13 @@
+﻿odel stajProje.UI.DTOs.ContactDtos.ContactDto
+
+@{
+    ViewData["Title"] = "Bildirim Detayları";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<p>Yazar: @Model.Name</p>
+p>Yazar: @Model.Email</p>
+<p>İçerik: @Model.Message</p>
+<p>Yayınlanma Tarihi: @Model.SentDate.ToString("dd/MM/yyyy")</p>
